@@ -1,0 +1,125 @@
+<html>
+
+<head>
+  <meta charset="UTF-8">
+  <title>主页</title>
+
+  <link rel="stylesheet" href="styles/style.css" id="theme-link">
+  <style></style>
+  <script src="js/zt.js"></script>
+  <script src="js/openapp.js"></script>
+  <script src="js/ckkz.js"></script>
+
+
+</head>
+
+<body>
+  <!-- pc-zhanyou -->
+  <div id="custom-title-bar">
+
+    <span> </span>
+    <div id="window-controls">
+
+      <button id="minimize">
+        <svg width="12" height="12" viewBox="0 0 12 12" fill="currentColor" xmlns="http://www.w3.org/2000/svg">
+          <rect x="0" y="5" width="12" height="2" rx="1"/>
+        </svg>
+      </button>
+    
+      <button id="close">
+        <svg width="12" height="12" viewBox="0 0 12 12" fill="none" xmlns="http://www.w3.org/2000/svg">
+          <path d="M1 1L11 11M11 1L1 11" stroke="currentColor" stroke-width="1.5"/>
+        </svg>
+      </button>
+    </div>
+  </div>
+  <div class="zt">
+
+    <div class="main-container">
+      <div class="boxdh">
+       
+        <a id="v4" href="#" class="a">首页</a>
+        <a id="v5" href="fl.html" class="a">分类</a>
+        <button onclick="openDialogsz()" class="a">设置</button>
+        <a id="v7" href="gy.html">关于</a>
+      </div>
+
+      <div class="grid-container">
+        <div id="v8" class="boxzj-fl">
+          <h1 id="v9">欢迎来到首页</h1>
+          <p id="v10">这是一个拥有众多css样式示例的软件 您可以从中获取灵感和使用他们</p>
+          <button onclick="openWeChat()" class="buttonwhite">打开微信</button>
+          <button onclick="openDevTools()" class="buttonwhite">打开开发者工具</button>
+          <button onclick="openChildWindow()" class="buttonwhite">打开子窗口</button>
+          <button onclick="openErrorDialog()" class="buttonwhite">打开错误弹窗</button>
+          <button onclick="closeAndReopenChildWindow()" class="buttonwhite">关闭打开子窗口</button>
+
+          <!-- 通知功能区域 -->
+          <h1>系统通知</h1>
+
+          <input type="text" id="notificationTitle" placeholder="请输入通知标题" value="自定义通知">
+
+
+
+          <input id="notificationBody" placeholder="请输入通知内容">
+
+          <button onclick="sendCustomNotification()" class="buttonwhite">发送自定义通知</button>
+          <button onclick="sendTestNotification()" class="buttonwhite">发送测试通知</button>
+
+          <h1>测试栏</h1>
+          <a href="PCLHindex.html" class="buttonwhite">超链接按钮</a>
+          <p>红色和白色按钮</p>
+          <a href="" class="buttonwhite">超链接按钮</a>
+          <button class="buttonwhite">button</button> <br>
+          <a href="" class="buttonred">超链接按钮</a>
+          <button class="buttonred">button</button>
+
+        </div>
+
+            <div id="v8" class="boxzj-fl">
+          <h1 id="v9">欢迎来到首页</h1>
+          <p id="v10">这是一个拥有众多css样式示例的软件 您可以从中获取灵感和使用他们</p>
+          <button onclick="openWeChat()" class="buttonwhite">打开微信</button>
+          <button onclick="openDevTools()" class="buttonwhite">打开开发者工具</button>
+          <button onclick="openChildWindow()" class="buttonwhite">打开子窗口</button>
+          <button onclick="openErrorDialog()" class="buttonwhite">打开错误弹窗</button>
+          <button onclick="closeAndReopenChildWindow()" class="buttonwhite">关闭打开子窗口</button>
+
+          <!-- 通知功能区域 -->
+          <h1>系统通知</h1>
+
+          <input type="text" id="notificationTitle" placeholder="请输入通知标题" value="自定义通知">
+
+
+
+          <input id="notificationBody" placeholder="请输入通知内容">
+
+          <button onclick="sendCustomNotification()" class="buttonwhite">发送自定义通知</button>
+          <button onclick="sendTestNotification()" class="buttonwhite">发送测试通知</button>
+
+          <h1>测试栏</h1>
+          <a href="PCLHindex.html" class="buttonwhite">超链接按钮</a>
+          <p>红色和白色按钮</p>
+          <a href="" class="buttonwhite">超链接按钮</a>
+          <button class="buttonwhite">button</button> <br>
+          <a href="" class="buttonred">超链接按钮</a>
+          <button class="buttonred">button</button>
+
+        </div>
+        <div>
+          <!-- dongtaishezhi <button onclick="openDialogsz()" class="buttonwhite">打开设置</button>-->
+          <dialog id="myDialogsz"></dialog>
+          <dialog id="ErrorDialog" class="ErrorDialog"><h1 style="color: #d90036;">错误</h1><button onclick="closeErrorDialog()"
+              class="buttonred">关闭</button></dialog>
+
+          <script src="js/tc.js"></script>
+          <script>
+
+          </script>
+        </div>
+      </div>
+    </div>
+  </div>
+</body>
+
+</html>

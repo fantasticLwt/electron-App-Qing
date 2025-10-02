@@ -1,0 +1,91 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>页面加载错误</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+            margin: 0;
+            background-color: #f5f5f5;
+        }
+        .error-container {
+            text-align: center;
+            padding: 20px;
+            min-width: 350px;
+            min-height: 400px;
+            background: white;
+            border-radius: 15px;
+            box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+        }
+        .error-icon {
+            font-size: 48px;
+            color: #e74c3c;
+            margin-bottom: 20px;
+        }
+        h1 {
+            color: #333;
+        }
+        p {
+            color: #666;
+            font-size: 16px;
+        }
+        .back-button {
+            background-color: #3498db;
+            color: white;
+            border: none;
+            padding: 10px 20px;
+            font-size: 16px;
+            border-radius: 4px;
+            cursor: pointer;
+            margin-top: 20px;
+        }
+        .back-button:hover {
+            background-color: #2980b9;
+        }
+        .buttonwhite {
+  margin: 5px;
+  color: #333333;
+  text-decoration: none;
+  background-color: #ffffff;
+  /* 更亮的白色背景 */
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.05);
+  border-radius: 8px;
+  padding: 10px 15px;
+  margin: 10px 0;
+  font-weight: normal;
+  border: none;
+  transition: all 0.2s ease;
+  display: inline-block;
+  cursor: pointer;
+}
+    </style>
+</head>
+<body>
+    <div class="error-container">
+        
+        <h1>页面加载失败</h1>
+        <p>页面不存在或加载失败</p>
+       <a href="index.html" class="buttonwhite">返回首页</a>
+        <button class="buttonwhite" onclick="goBack()">返回上一页</button>
+    </div>
+
+    <script>
+        function goBack() {
+            // 如果在 Electron 环境中
+            if (window.require) {
+                const { ipcRenderer } = require('electron');
+                ipcRenderer.send('close-child-window');
+            } else {
+                // 普通浏览器环境
+                window.history.back();
+            }
+        }
+    </script>
+</body>
+</html>

@@ -1,0 +1,104 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+
+  <link rel="stylesheet" href="styles/style.css" id="theme-link">
+  <link rel="stylesheet" href="styles/flex.css">
+  <script src="js/openapp.js"></script>
+  <script src="js/ckkz.js"></script>
+  <script src="js/zt.js"></script>
+
+
+</head>
+
+<body>
+<div class="body-0">
+   
+      
+        <div class="up">
+          <div class="up-left">
+
+
+          </div>
+          <div class="up-right">
+            <button id="minimize">
+              <svg width="12" height="12" viewBox="0 0 12 12" fill="currentColor" xmlns="http://www.w3.org/2000/svg">
+                <rect x="0" y="5" width="12" height="1" rx="1" />
+              </svg>
+            </button>
+
+            <button id="close">
+              <svg width="12" height="12" viewBox="0 0 12 12" fill="currentColor" xmlns="http://www.w3.org/2000/svg">
+                <path d="M1 1L11 11M11 1L1 11" stroke="currentColor" stroke-width="2" />
+              </svg>
+            </button>
+          </div>
+
+</div>
+
+  <div class="body-1">
+  <div class="left">
+      <div style="text-align: center; margin-top: 5px; margin-bottom: 5px;padding: 5px;">
+        <h3 style="margin-top: 0;">侧边栏</h3>
+        
+        <button onclick="openDialogsz()" class="a" >设置</button><br>
+        <a id="v4" href="#" class="a">首页</a><br>
+        <a id="v5" href="fl.html" class="a" style="margin-top: 5px;">分类</a><br>
+
+        <a id="v7" href="gy.html" class="a">关于</a>
+     
+      </div>
+    </div>
+   
+        <div class="right">
+
+          <div class="down-fl">
+            <h2>系统功能</h2>
+            <button onclick="openWeChat()" class="buttonwhite">打开微信</button>
+            <button onclick="openDevTools()" class="buttonwhite">打开开发者工具</button>
+            <button onclick="openChildWindow()" class="buttonwhite">打开子窗口</button>
+            <button onclick="openErrorDialog()" class="buttonwhite">打开错误弹窗</button>
+            <button onclick="closeAndReopenChildWindow()" class="buttonwhite">关闭打开子窗口</button>
+          </div>
+          <div class="down-fl">
+            <h2>系统通知</h2>
+            <input type="text" id="notificationTitle" placeholder="请输入通知标题" value="自定义通知">
+            <input id="notificationBody" placeholder="请输入通知内容">
+            <button onclick="sendCustomNotification()" class="buttonwhite">发送自定义通知</button>
+            <button onclick="sendTestNotification()" class="buttonwhite">发送测试通知</button>
+          </div>
+          <div class="down-fl">
+            <h2>测试栏</h2>
+            <a href="PCLHindex.html" class="buttonwhite">超链接按钮</a>
+            <p>红色和白色按钮</p>
+            <a href="" class="buttonwhite">超链接按钮</a>
+            <button class="buttonwhite">button</button> <br>
+            <a href="" class="buttonred">超链接按钮</a>
+            <button class="buttonred">button</button>
+          </div>
+          <div class="down-fl"></div>
+          <div class="down-fl"></div>
+          <div class="down-fl"></div>
+          <div class="down-fl"></div>
+          <div class="down-fl"></div>
+
+
+        </div>
+
+      </div>
+
+    </div>
+  </div>
+</div>
+  <dialog id="myDialogsz"></dialog>
+  <dialog id="ErrorDialog" class="ErrorDialog">
+    <h1 style="color: #d90036;">错误</h1><button onclick="closeErrorDialog()" class="buttonred">关闭</button>
+  </dialog>
+  <script src="js/tc.js"></script>
+</body>
+
+</html>

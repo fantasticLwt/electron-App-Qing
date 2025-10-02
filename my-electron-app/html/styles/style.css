@@ -1,0 +1,263 @@
+/* 白色主题 */
+
+
+body {
+  background-color: #ffffff;
+
+}
+.left {
+  background-color: #ffffff;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.2);
+}
+.up { 
+ background-color: #f3f3f3; 
+
+ box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15);
+}
+
+.down-fl {
+  
+ background-color: #f8f8f8ea; 
+
+}
+svg { 
+  fill: rgb(0, 0, 0);
+  stroke: rgb(0, 0, 0);
+  color: rgb(0, 0, 0);
+}
+
+
+
+/* 基本定义 */
+h1,
+h3,
+h2 {
+  color: #333;
+  margin-top: 0;
+  margin-bottom: 10px;
+}
+
+label,
+p {
+  color: #666;
+  line-height: 1.5;
+  margin-top: 5px;
+  margin-bottom: 5px;
+}
+
+a {
+  margin: 0 10px;
+  color: #333;
+  text-decoration: none;
+}
+
+a:hover {
+  color: #dddada;
+}
+
+
+.a {
+ margin: 0 5px;
+  color: #333;
+  border: none;
+    background-color: transparent;
+  font-size: 18px;
+  border-radius: 8px;
+
+}
+.a:hover {
+  color: #dddada;
+}
+/* 普通按钮 */
+.buttonwhite {
+  margin: 5px;
+  color: #333333;
+  text-decoration: none;
+  background-color: #ffffff;
+  /* 更亮的白色背景 */
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.05);
+  border-radius: 8px;
+  padding: 10px 15px;
+  margin: 10px 0;
+  font-weight: normal;
+  border: none;
+  transition: all 0.2s ease;
+  display: inline-block;
+  cursor: pointer;
+}
+
+.buttonwhite:hover {
+  transform: translateY(-1px);
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+  background-color: rgba(0, 0, 0, 0.1);
+  /* 使用与窗口控制按钮相同的悬停背景 */
+  color: #222222;
+}
+
+.buttonwhite.active {
+  opacity: 0.7;
+  transform: translateY(0);
+}
+
+/* 警示按钮 */
+.buttonred {
+  margin: 5px;
+  color: #ffffff;
+  text-decoration: none;
+  background-color: #d90036;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+  border-radius: 8px;
+   padding: 10px 15px;
+  margin: 10px 0;
+  font-weight: normal;
+  border: none;
+  transition: all 0.2s ease;
+  display: inline-block;
+  cursor: pointer;
+}
+
+.buttonred:hover {
+  transform: translateY(-1px);
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.15);
+  background-color: rgba(0, 0, 0, 0.1);
+  /* 统一使用半透明黑色作为悬停背景 */
+  color: #ffffff;
+}
+
+.buttonred.active {
+  opacity: 0.7;
+  transform: translateY(0);
+}
+
+/* 弹窗样式 */
+dialog {
+  background-color: white;
+  border-radius: 15px;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+  padding: 20px;
+  margin: 20px auto;
+  max-width: 300px;
+  min-width: 300px;
+  border: none;
+  /* 动画相关属性 */
+  opacity: 0;
+  transform: scale(0.7) translateY(-50px);
+  transition: all 0.3s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+  display: block;
+}
+
+.ErrorDialog {
+  background-color: #fd4c4c;
+  /* 红色背景 */
+  color: #d90036;
+}
+
+/* 弹窗打开时的样式 */
+dialog[open] {
+  opacity: 1;
+  transform: scale(1) translateY(0);
+}
+
+/* 背景遮罩动画 */
+dialog::backdrop,
+dialog::-webkit-backdrop {
+  background-color: rgba(0, 0, 0, 0.7);
+  opacity: 0;
+  transition: opacity 0.3s ease;
+}
+
+.ErrorDialog::backdrop,
+.ErrorDialog::-webkit-backdrop {
+  background-color: rgba(139, 0, 0, 0.6);
+  /* 暗红色背景 */
+  opacity: 0;
+  transition: opacity 0.3s ease;
+}
+
+dialog[open]::backdrop,
+dialog[open]::-webkit-backdrop {
+  opacity: 1;
+}
+
+/* 输入框 */
+textarea,
+input,
+select {
+  padding: 10px;
+  margin: 10px 0;
+
+  color: #666;
+  border-radius: 15px;
+  border: none;
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+  font-family: inherit;
+  display: block;
+}
+
+
+input[type="number"] {
+  -webkit-appearance: none;
+  /* 移除 WebKit 浏览器的默认样式 */
+  -moz-appearance: textfield;
+  /* 移除 Firefox 的默认样式 */
+  appearance: textfield;
+}
+
+textarea:focus,
+input:focus,
+select:focus {
+  outline: none;
+  
+}
+
+option {
+  border-radius: 15px;
+  /* 设置圆角 */
+  color: #666;
+}
+
+/* 返回按钮 */
+.fh-button {
+  position: absolute;
+  left: 10px;
+  background-color: white;
+  color: #666;
+  border: none;
+  cursor: pointer;
+}
+
+.fh-button:hover {
+  background-color: white;
+  color: #666;
+  transform: scale(1.1);
+}
+
+/* 返回按钮和标题居中 */
+.header-container {
+  display: flex;
+  align-items: center;
+  margin: 15px 0;
+  position: relative;
+}
+
+.header-container h1 {
+  margin: 0;
+  flex-grow: 1;
+  text-align: center;
+}
+
+.Errordialog {
+  background-color: #fff0f0;
+  border-radius: 15px;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+  padding: 20px;
+  margin: 20px auto;
+  max-width: 300px;
+  min-width: 300px;
+  border: 2px solid #ff6b6b;
+  /* 添加动画相关属性 */
+  opacity: 0;
+  transform: scale(0.7) translateY(-50px);
+  transition: all 0.3s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+  display: block;
+}

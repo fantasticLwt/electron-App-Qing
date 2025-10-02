@@ -1,0 +1,188 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+
+  <link rel="stylesheet" href="styles/style.css" id="theme-link">
+  <link rel="stylesheet" href="styles/flex.css">
+  <script src="js/openapp.js"></script>
+  <script src="js/ckkz.js"></script>
+  <script src="js/zt.js"></script>
+
+
+</head>
+
+<body>
+<div class="body-0">
+   
+      
+        <div class="up">
+          <div class="up-left">
+
+
+          </div>
+          <div class="up-right">
+            <button id="minimize">
+              <svg width="12" height="12" viewBox="0 0 12 12" fill="currentColor" xmlns="http://www.w3.org/2000/svg">
+                <rect x="0" y="5" width="12" height="1" rx="1" />
+              </svg>
+            </button>
+
+            <button id="close">
+              <svg width="12" height="12" viewBox="0 0 12 12" fill="currentColor" xmlns="http://www.w3.org/2000/svg">
+                <path d="M1 1L11 11M11 1L1 11" stroke="currentColor" stroke-width="2" />
+              </svg>
+            </button>
+          </div>
+
+</div>
+
+  <div class="body-1">
+  <div class="left">
+      <div style="text-align: center; margin-top: 5px; margin-bottom: 5px;padding: 5px;">
+        <h3 style="margin-top: 0;">侧边栏</h3>
+        
+        <button onclick="openDialogsz()" class="a" >设置</button><br>
+        <a id="v4" href="#" class="a">首页</a><br>
+        <a id="v5" href="fl.html" class="a" style="margin-top: 5px;">分类</a><br>
+
+        <a id="v7" href="gy.html" class="a">关于</a>
+     
+      </div>
+    </div>
+   
+        <div class="right">
+
+          
+          <div class="down-fl"><div class="grid-container">
+      <div id="v8">
+
+        <!-- 添加选择加载文件的功能 -->
+        <div>
+          <label for="fileSelector">选择要加载的文件:</label>
+          <select id="fileSelector">
+            <option value="content/wjjz.html">wjjz.html</option>
+            <option value="content/preset-example.html">preset-example.html</option>
+             <option value="index.html">index.html</option>
+             <option value="content/wjjz1.txt">wjjz1.txt</option>
+             <option value="content/wjjz1.json">wjjz1.json</option>
+          </select>
+          <button onclick="loadSelectedContent()" class="buttonwhite">加载选定文件</button>
+
+          <button onclick="clearContent()" class="buttonwhite">清空内容</button>
+          <button onclick="openDevTools()" class="buttonwhite">打开开发者工具</button>
+        </div>
+
+               <div class="down-fl"> <div id="contentContainer" class="boxzj-fl">
+          <p>选择一个文件并点击"加载选定文件"按钮在此区域加载HTML文件的内容。</p>
+        </div></div>
+
+
+      </div>
+      <div>
+
+
+        <!-- dongtaishezhi <button onclick="openDialogsz()" class="buttonwhite">打开设置</button>-->
+        <dialog id="myDialogsz"></dialog>
+
+        <script src="html/js/tc.js"></script>
+        <script>
+          // 加载另一个HTML文件的内容到div中 (现在默认加载content.html)
+          async function loadContent() {
+            try {
+              const response = await fetch('content/content.html');
+              if (!response.ok) {
+                throw new Error(`HTTP error! status: ${response.status}`);
+              }
+              const content = await response.text();
+              document.getElementById('contentContainer').innerHTML = content;
+
+              // 执行加载内容中的脚本
+              const scripts = document.getElementById('contentContainer').querySelectorAll('script');
+              scripts.forEach(script => {
+                if (script.src) {
+                  // 外部脚本
+                  const newScript = document.createElement('script');
+                  newScript.src = script.src;
+                  document.head.appendChild(newScript);
+                } else {
+                  // 内联脚本
+                  const newScript = document.createElement('script');
+                  newScript.textContent = script.innerHTML;
+                  document.getElementById('contentContainer').appendChild(newScript);
+                }
+              });
+            } catch (error) {
+              document.getElementById('contentContainer').innerHTML = '<p style="color: red;">加载内容失败: ' + error.message + '</p>';
+              console.error('加载内容失败:', error);
+            }
+          }
+
+          // 根据选择加载指定的HTML文件
+          async function loadSelectedContent() {
+            const fileSelector = document.getElementById('fileSelector');
+            const selectedFile = fileSelector.value;
+
+            if (!selectedFile) {
+              document.getElementById('contentContainer').innerHTML = '<p style="color: red;">请选择一个文件</p>';
+              return;
+            }
+
+            try {
+              const response = await fetch(selectedFile);
+              if (!response.ok) {
+                throw new Error(`HTTP error! status: ${response.status}`);
+              }
+              const content = await response.text();
+              document.getElementById('contentContainer').innerHTML = content;
+
+              // 执行加载内容中的脚本
+              const scripts = document.getElementById('contentContainer').querySelectorAll('script');
+              scripts.forEach(script => {
+                if (script.src) {
+                  // 外部脚本
+                  const newScript = document.createElement('script');
+                  newScript.src = script.src;
+                  document.head.appendChild(newScript);
+                } else {
+                  // 内联脚本
+                  const newScript = document.createElement('script');
+                  newScript.textContent = script.innerHTML;
+                  document.getElementById('contentContainer').appendChild(newScript);
+                }
+              });
+            } catch (error) {
+              document.getElementById('contentContainer').innerHTML = '<p style="color: red;">加载内容失败: ' + error.message + '</p>';
+              console.error('加载内容失败:', error);
+            }
+          }
+
+          // 清空内容
+          function clearContent() {
+            document.getElementById('contentContainer').innerHTML = '<p>选择一个文件并点击"加载选定文件"按钮在此区域加载HTML文件的内容。</p>';
+          }
+        </script></div>
+   
+          <div class="down-fl"></div>
+          <div class="down-fl"></div>
+          <div class="down-fl"></div>
+
+
+        </div>
+
+      </div>
+
+    </div>
+  </div>
+</div>
+  <dialog id="myDialogsz"></dialog>
+  <dialog id="ErrorDialog" class="ErrorDialog">
+    <h1 style="color: #d90036;">错误</h1><button onclick="closeErrorDialog()" class="buttonred">关闭</button>
+  </dialog>
+  <script src="js/tc.js"></script>
+</body>
+
+</html>

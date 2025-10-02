@@ -1,0 +1,79 @@
+/* 导航栏 */
+.boxdh {
+  display: flex;
+  align-items: center;
+  height: 50px;
+  background-color: #fff;
+  border-radius: 10px;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+  padding: 0 10px;
+  margin: 10px 0;
+  max-width: 100%;
+  min-width: unset;
+}
+#8cdcfc
+/* 分栏 */
+.boxzj-fl {
+  border-radius: 10px;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+  padding: 10px;
+  margin: 10px 0;
+  max-width: 100%;
+  min-width: unset;
+  background-color: rgb(255, 255, 255);
+
+}
+
+.boxdh {
+  display: flex;
+  align-items: center;
+  height: 60px;
+  background-color: #1a1a1a;
+  border-radius: 20px;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.3);
+  padding: 0 20px;
+  margin: 20px 0;
+  max-width: 300px;
+  min-width: 300px;
+  color: #e0e0e0;
+}
+
+.boxzj-fl {
+  background-color: #1a1a1a;
+  border-radius: 20px;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.3);
+  padding: 20px;
+  margin: 20px 0;
+  max-width: 300px;
+  min-width: 300px;
+  color: #e0e0e0;
+}
+
+/* 导航栏 */
+.boxdh {
+  display: flex;
+  align-items: center;
+  height: 60px;
+  background-color: rgba(255, 255, 255, 0.7);
+  backdrop-filter: blur(10px);
+  border-radius: 15px;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+  padding: 0 20px;
+  margin: 20px 0;
+  max-width: 300px;
+  min-width: 300px;
+}
+
+/* 分栏 */
+.boxzj-fl {
+  /* 分栏background-color: white;分栏 */
+  border-radius: 15px;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+  padding: 20px;
+  margin: 20px 0;
+  max-width: 300px;
+  min-width: 300px;
+  background-color: rgba(255, 255, 255, 0.7);
+  backdrop-filter: blur(10px);
+
+}

@@ -1,0 +1,342 @@
+/* 黑色系样式 */
+
+/* 标题栏样式 */
+#custom-title-bar {
+  display: flex;
+  align-items: center;
+  padding: 0 10px;
+  height: 30px;
+  color: white;
+  -webkit-app-region: drag; /* 设置拖动区域 */
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  z-index: 1000;
+  background-color: transparent;
+}
+
+#window-controls {
+  display: flex;
+  align-items: center;
+  margin-left: auto;
+  -webkit-app-region: no-drag; /* 禁止拖动 */
+  color: white;
+}
+
+#window-controls button {
+  background: none;
+  border: none;
+  cursor: pointer;
+  font-size: 16px;
+  padding: 0 10px;
+  width: 30px;
+  height: 30px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: white;
+}
+
+.zt {
+  margin-top: 30px;
+   margin-left: 17px;
+}
+
+/* 隐藏滚动条，但仍然可以滚动 */
+::-webkit-scrollbar {
+  display: none;
+}
+
+/* 兼容 Firefox */
+* {
+  scrollbar-width: none;
+}
+
+/* 响应式网格容器 */
+.grid-container {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+  gap: 20px;
+  max-width: 1200px;
+}
+
+/* 当窗口小于 802px 时，最多显示两列 */
+@media screen and (max-width: 802px) {
+  .grid-container {
+    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+    max-width: 600px;
+  }
+}
+
+/* 当窗口小于 401px 时，只显示一列 */
+@media screen and (max-width: 401px) {
+  .grid-container {
+    grid-template-columns: 1fr;
+    max-width: 300px;
+  }
+}
+
+/* 黑色系样式 - 融合按钮样式 */
+body {
+  background-color: #1a1a1a;
+}
+
+.boxdh {
+  display: flex;
+  align-items: center;
+  height: 60px;
+  background-color: #1a1a1a;
+  border-radius: 20px;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.3);
+  padding: 0 20px;
+  margin: 20px 0;
+  max-width: 300px;
+  min-width: 300px;
+  color: #e0e0e0;
+}
+
+.boxzj-fl {
+  background-color: #1a1a1a;
+  border-radius: 20px;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.3);
+  padding: 20px;
+  margin: 20px 0;
+  max-width: 300px;
+  min-width: 300px;
+  color: #e0e0e0;
+}
+
+h1, h2 {
+  color: #f0f0f0;
+  margin-top: 0;
+}
+
+label, p {
+  color: #cccccc;
+  line-height: 1.6;
+}
+
+a {
+  margin: 0 10px;
+  color: #bbbbbb;
+  text-decoration: none;
+}
+
+a:hover {
+  color: #ffffff;
+}
+
+.a {
+  margin: 0 10px;
+  color: #bbbbbb;
+  border: none;
+  background-color:#1a1a1a;
+  font-size: 16px;
+}
+
+/* 普通按钮 */
+.buttonwhite {
+  margin: 0 10px;
+  color: #e0e0e0;
+  text-decoration: none;
+  background-color: #2a2a2a;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.2);
+  border-radius: 8px;
+  padding: 10px 15px;
+  margin: 10px 0;
+  font-weight: normal;
+  border: 1px solid #333333;
+  transition: all 0.2s ease;
+  display: inline-block;
+  cursor: pointer;
+}
+
+.buttonwhite:hover {
+  transform: translateY(-1px);
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.3);
+  background-color: #333333;
+  color: #ffffff;
+}
+
+.buttonwhite.active {
+  opacity: 0.7;
+  transform: translateY(0);
+}
+
+/* 警示按钮 */
+.buttonred {
+  margin: 0 10px;
+  color: #ffffff;
+  text-decoration: none;
+  background-color: #b3002d;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.2);
+  border-radius: 8px;
+  padding: 10px 15px;
+  margin: 10px 0;
+  font-weight: normal;
+  border: 1px solid #cc0033;
+  transition: all 0.2s ease;
+  display: inline-block;
+  cursor: pointer;
+}
+
+.buttonred:hover {
+  transform: translateY(-1px);
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.3);
+  background-color: #cc0033;
+}
+
+.buttonred.active {
+  opacity: 0.7;
+  transform: translateY(0);
+}
+
+/* 弹窗显示时的样式 */
+dialog {
+  background-color: #1a1a1a;
+  border-radius: 20px;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.3);
+  padding: 20px;
+  margin: 20px auto;
+  max-width: 300px;
+  min-width: 300px;
+  border: 1px solid #333333;
+  color: #e0e0e0;
+  /* 添加动画相关属性 */
+  opacity: 0;
+  transform: scale(0.7) translateY(-50px);
+  transition: all 0.3s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+  display: block;
+}
+
+.ErrorDialog {
+  background-color: #3b1d1d; /* 深色模式下的暗红色背景 */
+  color: #ff8080; /* 深色模式下的浅红色文字 */
+}
+
+/* 弹窗显示时的样式 */
+dialog[open] {
+  opacity: 1;
+  transform: scale(1) translateY(0);
+}
+
+/* 弹窗隐藏时的样式 */
+dialog:not([open]) {
+  opacity: 0;
+  transform: scale(0.7) translateY(-50px);
+}
+
+/* backdrop动画 */
+dialog::backdrop {
+  background-color: rgba(0, 0, 0, 0.7);
+  opacity: 0;
+  transition: opacity 0.3s ease;
+}
+
+.ErrorDialog::backdrop {
+  background-color: rgba(139, 0, 0, 0.4); /* 深色模式下稍透明的暗红色背景 */
+  opacity: 0;
+  transition: opacity 0.3s ease;
+}
+
+dialog[open]::backdrop {
+  opacity: 1;
+}
+
+/* 针对不同浏览器的兼容性 */
+dialog::-webkit-backdrop {
+  background-color: rgba(0, 0, 0, 0.7);
+  opacity: 0;
+  transition: opacity 0.3s ease;
+}
+
+dialog[open]::-webkit-backdrop {
+  opacity: 1;
+}
+
+/* 输入框 */
+textarea, input, select {
+  padding: 10px;
+  margin: 10px 0;
+  width: 90%;
+  color: #cccccc;
+  background-color: #1a1a1a;
+  border-radius: 20px;
+  border: none;
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.3);
+  font-family: inherit;
+  display: block;
+}
+
+textarea {
+  height: 200px;
+  width: 90%;
+}
+
+input, select {
+  height: 50px;
+  width: 95%;
+}
+
+input[type="number"] {
+  -webkit-appearance: none; /* 移除 WebKit 浏览器的默认样式 */
+  -moz-appearance: textfield; /* 移除 Firefox 的默认样式 */
+  appearance: textfield;
+  background-color: #1a1a1a;
+}
+
+textarea:focus, input:focus, select:focus {
+  outline: none;
+}
+
+option {
+  border-radius: 20px; /* 设置圆角 */
+  background-color: #1a1a1a;
+  color: #cccccc;
+}
+
+/* 返回按钮 */
+.fh-button {
+  position: absolute;
+  left: 10px;
+  background-color: #1a1a1a;
+  color: #e0e0e0;
+  border: none;
+  cursor: pointer;
+}
+
+.fh-button:hover {
+  background-color: #1a1a1a;
+  color: #e0e0e0;
+  transform: scale(1.1);
+}
+
+/* 返回按钮和标题居中 */
+.header-container {
+  display: flex;
+  align-items: center;
+  margin: 15px 0;
+  position: relative;
+}
+
+.header-container h1 {
+  margin: 0;
+  flex-grow: 1;
+  text-align: center;
+}
+.Errordialog {
+  background-color: #fff0f0;
+  border-radius: 15px;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+  padding: 20px;
+  margin: 20px auto;
+  max-width: 300px;
+  min-width: 300px;
+  border: 2px solid #ff6b6b;
+  /* 添加动画相关属性 */
+  opacity: 0;
+  transform: scale(0.7) translateY(-50px);
+  transition: all 0.3s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+  display: block;
+}
