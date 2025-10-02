@@ -1,0 +1,182 @@
+<div>
+    <p id="myText">这是一段文本。</p>
+    <button onclick="changeText()">点击我</button>
+
+    <script>
+        function changeText() {
+            const element = document.getElementById("myText");
+            
+            // 循环更改文本，每次循环先显示1后显示2
+            for (let i = 1; i <= 3; i++) {
+                setTimeout(() => {
+                    element.innerHTML = `文本已更改${i}次1`;
+                }, (i * 2 - 1) * 1000);
+                
+                setTimeout(() => {
+                    element.innerHTML = `文本已更改${i}次2`;
+                }, i * 2 * 1000);
+            }
+        }
+    </script>
+     
+    <!-- 添加用户输入内容区域 -->
+    <h1>读取用户输入内容</h1>
+    <div>
+      <input type="text" id="userInput" placeholder="请输入一些内容">
+      <input type="text" id="tcInput" placeholder="请输入一些内容">
+      <button onclick="readUserInput()" class="buttonwhite">读取输入内容</button>
+      <button onclick="saveToFile()" class="buttonwhite">保存到文件</button>
+      <button onclick="saveToCustomFile()" class="buttonwhite">自定义保存</button>
+      <button onclick="clearUserInput()" class="buttonwhite">清空输入</button>
+      <div id="userInputResult" style="margin-top: 10px; padding: 10px; border: 1px solid #ccc; min-height: 20px;"></div>
+    </div>
+    
+    <!-- 自定义文件名模态框 -->
+    <div id="filenameModal" style="display: none; position: fixed; z-index: 1000; left: 0; top: 0; width: 100%; height: 100%; background-color: rgba(0,0,0,0.5);">
+      <div style="background-color: white; margin: 15% auto; padding: 20px; border-radius: 5px; width: 50%;">
+        <h2>输入文件名</h2>
+        <input type="text" id="customFilename" placeholder="请输入文件名(默认为user-data.txt)" style="width: 100%; padding: 8px; margin: 10px 0;">
+        <button onclick="confirmSave()" class="buttonwhite">确定</button>
+        <button onclick="cancelSave()" class="buttonwhite">取消</button>
+      </div>
+    </div>
+    
+    <script>
+      // 用于存储待保存的内容
+      let contentToSave = '';
+      
+      function TCbutton() {
+          
+          
+      }
+      function readUserInput() {
+        const inputElement = document.getElementById('userInput');
+        const resultElement = document.getElementById('userInputResult');
+        const inputValue = inputElement.value;
+        
+        if (inputValue.trim() === '') {
+          resultElement.innerHTML = '<p style="color: red;">请输入一些内容</p>';
+          return;
+        }
+        
+        resultElement.innerHTML = `
+          <h3>读取到的内容：</h3>
+          <p><strong>内容：</strong> ${inputValue}</p>
+          <p><strong>输入长度：</strong> ${inputValue.length} 字符</p>
+          <p><strong>读取时间：</strong> ${new Date().toLocaleString()}</p>
+        `;
+      }
+      
+      function clearUserInput() {
+        const inputElement = document.getElementById('userInput');
+        const resultElement = document.getElementById('userInputResult');
+        inputElement.value = '';
+        resultElement.innerHTML = '';
+      }
+      
+      // 保存内容到项目文件夹中的文件（使用默认文件名）
+      async function saveToFile() {
+        const inputElement = document.getElementById('userInput');
+        const inputValue = inputElement.value;
+        
+        if (inputValue.trim() === '') {
+          alert('请输入一些内容再保存');
+          return;
+        }
+        
+        try {
+          // 检查 electronAPI 是否可用
+          if (typeof window.electronAPI === 'undefined' || typeof window.electronAPI.writeToProjectFile !== 'function') {
+            alert('Electron API 不可用，无法保存文件');
+            return;
+          }
+          
+          // 调用主进程将内容写入项目文件夹中的文件
+          const result = await window.electronAPI.writeToProjectFile('user-data.txt', inputValue);
+          
+          if (result.success) {
+            document.getElementById('userInputResult').innerHTML += `<p style="color: green;">内容已保存到: ${result.path}</p>`;
+          } else {
+            document.getElementById('userInputResult').innerHTML += `<p style="color: red;">保存失败: ${result.error}</p>`;
+          }
+        } catch (error) {
+          document.getElementById('userInputResult').innerHTML += `<p style="color: red;">保存出错: ${error.message}</p>`;
+        }
+      }
+      
+      // 自定义保存文件名
+      function saveToCustomFile() {
+        const inputElement = document.getElementById('userInput');
+        const inputValue = inputElement.value;
+        
+        if (inputValue.trim() === '') {
+          alert('请输入一些内容再保存');
+          return;
+        }
+        
+        // 存储待保存的内容
+        contentToSave = inputValue;
+        
+        // 显示文件名输入模态框
+        document.getElementById('filenameModal').style.display = 'block';
+        document.getElementById('customFilename').focus();
+      }
+      
+      // 确认保存
+      async function confirmSave() {
+        const filenameInput = document.getElementById('customFilename');
+        let filename = filenameInput.value.trim();
+        
+        // 如果没有输入文件名，使用默认文件名
+        if (filename === '') {
+          filename = 'user-data.txt';
+        }
+        
+        // 确保文件名以.txt结尾
+        if (!filename.endsWith('.txt')) {
+          filename += '.txt';
+        }
+        
+        try {
+          // 检查 electronAPI 是否可用
+          if (typeof window.electronAPI === 'undefined' || typeof window.electronAPI.writeToProjectFile !== 'function') {
+            alert('Electron API 不可用，无法保存文件');
+            return;
+          }
+          
+          // 调用主进程将内容写入项目文件夹中的文件
+          const result = await window.electronAPI.writeToProjectFile(filename, contentToSave);
+          
+          if (result.success) {
+            document.getElementById('userInputResult').innerHTML += `<p style="color: green;">内容已保存到: ${result.path}</p>`;
+          } else {
+            document.getElementById('userInputResult').innerHTML += `<p style="color: red;">保存失败: ${result.error}</p>`;
+          }
+        } catch (error) {
+          document.getElementById('userInputResult').innerHTML += `<p style="color: red;">保存出错: ${error.message}</p>`;
+        } finally {
+          // 隐藏模态框并清空输入
+          document.getElementById('filenameModal').style.display = 'none';
+          filenameInput.value = '';
+          contentToSave = '';
+        }
+      }
+      
+      // 取消保存
+      function cancelSave() {
+        document.getElementById('filenameModal').style.display = 'none';
+        document.getElementById('customFilename').value = '';
+        contentToSave = '';
+      }
+      
+      // 允许按Enter键确认保存
+      document.addEventListener('DOMContentLoaded', () => {
+        const filenameInput = document.getElementById('customFilename');
+        filenameInput.addEventListener('keyup', function(event) {
+          if (event.key === 'Enter') {
+            confirmSave();
+          }
+        });
+      });
+    </script>
+</div>

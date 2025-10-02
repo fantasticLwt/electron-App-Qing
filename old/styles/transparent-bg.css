@@ -1,0 +1,98 @@
+/* 透明背景样式 */
+
+/* 完全透明背景 */
+.transparent-bg {
+  background-color: transparent;
+}
+
+/* 半透明背景 */
+.semi-transparent-bg {
+  background-color: rgba(255, 255, 255, 0.5);
+}
+
+/* 可自定义的半透明背景 */
+.translucent-bg {
+  background-color: rgba(255, 255, 255, 0.7);
+}
+
+/* 深色半透明背景 */
+.translucent-dark-bg {
+  background-color: rgba(0, 0, 0, 0.5);
+}
+
+/* 毛玻璃效果（需要配合backdrop-filter使用） */
+.frosted-glass-bg {
+  background-color: rgba(255, 255, 255, 0.7);
+  backdrop-filter: blur(10px);
+}
+
+/* 深色毛玻璃效果 */
+.frosted-glass-dark-bg {
+  background-color: rgba(0, 0, 0, 0.3);
+  backdrop-filter: blur(10px);
+}
+
+/* 轻微模糊效果 */
+.light-blur-bg {
+  background-color: rgba(255, 255, 255, 0.5);
+  backdrop-filter: blur(5px);
+}
+
+/* 强烈模糊效果 */
+.strong-blur-bg {
+  background-color: rgba(255, 255, 255, 0.8);
+  backdrop-filter: blur(20px);
+}
+
+/* 无背景色但有模糊 */
+.blur-only-bg {
+  background-color: transparent;
+  backdrop-filter: blur(10px);
+}
+
+/* 标题栏透明背景 */
+#custom-title-bar.transparent {
+  background-color: rgba(255, 255, 255, 0.7);
+  backdrop-filter: blur(10px);
+}
+
+/* 窗口控件透明背景 */
+#window-controls.transparent {
+  background-color: transparent;
+}
+
+/* 按钮透明背景 */
+button.transparent {
+  background-color: rgba(255, 255, 255, 0.5);
+  backdrop-filter: blur(5px);
+  border: none;
+}
+
+/* 弹窗透明背景 */
+dialog.transparent {
+  background-color: rgba(255, 255, 255, 0.8);
+  backdrop-filter: blur(10px);
+  border: none;
+}
+
+/* 卡片透明背景 */
+.card.transparent {
+  background-color: rgba(255, 255, 255, 0.7);
+  backdrop-filter: blur(10px);
+  border-radius: 10px;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+}
+
+/* 使用示例：
+1. 完全透明背景：
+   &lt;div class="transparent-bg"&gt;...&lt;/div&gt;
+   
+2. 半透明背景：
+   &lt;div class="semi-transparent-bg"&gt;...&lt;/div&gt;
+   
+3. 毛玻璃效果：
+   &lt;div class="frosted-glass-bg"&gt;...&lt;/div&gt;
+   
+4. 透明标题栏：
+   &lt;div id="custom-title-bar" class="transparent"&gt;...&lt;/div&gt;
+*/

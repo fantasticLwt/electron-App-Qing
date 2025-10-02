@@ -1,0 +1,57 @@
+<div>
+    <h2>新的预设示例页面</h2>
+    <p>这是一个新添加的预设页面示例。</p>
+    
+    <div style="margin: 15px 0;">
+        <label for="presetInput">预设输入框:</label>
+        <input type="text" id="presetInput" placeholder="在此输入内容..." style="width: 100%; padding: 8px; margin: 5px 0;">
+        <button onclick="processPresetInput()" class="buttonwhite">处理输入</button>
+        <button onclick="clearPresetInput()" class="buttonwhite">清空</button>
+    </div>
+    
+    <div id="presetResult" style="margin-top: 10px; padding: 10px; background-color: #e9f7ef; border-radius: 4px; display: none;">
+        <h3>处理结果：</h3>
+        <p id="presetResultContent"></p>
+    </div>
+    
+    <div style="margin-top: 20px;">
+        <h3>功能特点</h3>
+        <ul>
+            <li>这是新添加的预设页面</li>
+            <li>可以处理用户输入的内容</li>
+            <li>支持清空输入和结果显示</li>
+            <li>展示了如何添加新的预设选项</li>
+        </ul>
+    </div>
+    
+    <script>
+        function processPresetInput() {
+            const input = document.getElementById('presetInput').value;
+            const result = document.getElementById('presetResult');
+            const resultContent = document.getElementById('presetResultContent');
+            
+            if (input.trim() === '') {
+                alert('请输入一些内容');
+                return;
+            }
+            
+            result.style.display = 'block';
+            resultContent.innerHTML = `
+                <strong>您输入的内容：</strong> ${input}<br>
+                <strong>字符数量：</strong> ${input.length}<br>
+                <strong>处理时间：</strong> ${new Date().toLocaleString()}
+            `;
+        }
+        
+        function clearPresetInput() {
+            document.getElementById('presetInput').value = '';
+            const result = document.getElementById('presetResult');
+            result.style.display = 'none';
+        }
+        
+        // 页面加载完成后显示欢迎信息
+        document.addEventListener('DOMContentLoaded', () => {
+            console.log('新的预设页面已加载');
+        });
+    </script>
+</div>
